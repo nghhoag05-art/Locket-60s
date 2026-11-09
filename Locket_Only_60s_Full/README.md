@@ -1,49 +1,67 @@
-# LOCKET ONLY 60s — HƯỚNG DẪN CÀI ĐẶT
+# Locket 60s + YouTube — Shadowrocket
 
-ĐÂY LÀ BỘ MỚI CHỈ CÓ LOCKET. KHÔNG CÓ YOUTUBE.
-Bộ này không tự đăng file lên GitHub. Để tránh lỗi Not Found, cần upload đủ 4 file vào đúng đường dẫn trước khi dán URL Module.
+Repo có hai lựa chọn:
 
-## CẤU TRÚC CHÍNH XÁC
+- `module/locket-60s-youtube-huyhoang.module`: Locket 60s kèm phần YouTube lấy từ [module đã chọn](https://github.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/blob/main/module/locket-youtube-huyhoang.module).
+- `module/locket-only-60s-full.module`: chỉ Locket 60s.
 
-Locket-Custom-Personal-huyhoang/
-├── scripts/
-│   ├── forceGold4.3_60s_full.js
-│   ├── locketfix8_60s_full.js
-│   └── header7_60s_full.js
-└── module/
-    └── locket-only-60s-full.module
+## Cài bản Locket 60s + YouTube
 
-## CÁCH ĐƯA LÊN GITHUB
+1. Thêm URL sau trong phần Module của Shadowrocket:
 
-1. Mở repo https://github.com/nghhoag05-art/Locket-Custom-Personal-huyhoang và chọn nhánh main.
-2. Bấm thư mục scripts/ và upload BA file .js trong bộ ZIP. Đừng upload nguyên ZIP hoặc thêm thư mục bao ngoài. Commit.
-3. Bấm thư mục module/ và upload file locket-only-60s-full.module. Commit.
-4. Mở lần lượt bốn URL bên dưới bằng trình duyệt. Mỗi link phải hiển thị mã nguồn (không được hiện 404 / Not Found).
+   https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/module/locket-60s-youtube-huyhoang.module
 
-SCRIPT VIDEO/CAPTION:
-https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/refs/heads/main/scripts/forceGold4.3_60s_full.js
+2. Bật module mới. Tắt các module Locket và YouTube cũ có cùng quy tắc để tránh chạy trùng.
+3. Trong cấu hình đang dùng, bật HTTPS Decryption/MITM. Nếu chưa có CA của riêng bạn, tạo CA trong Shadowrocket, cài chứng chỉ và bật tin cậy trong cài đặt iOS.
+4. Làm mới module và các script, kết nối lại Shadowrocket rồi mở lại Locket/YouTube.
+5. Kiểm tra nhật ký tải script và lỗi JavaScript trên thiết bị. URL tải thành công chưa xác nhận tính năng trong ứng dụng hoạt động.
 
-SCRIPT REVENUECAT:
-https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/refs/heads/main/scripts/locketfix8_60s_full.js
+## Nội dung bản ghép
 
-SCRIPT HEADER:
-https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/refs/heads/main/scripts/header7_60s_full.js
+- Dùng nguyên ba script Locket `*_60s_full.js` hiện có trong repo này, với đường dẫn đúng cả thư mục `Locket_Only_60s_Full/scripts/`.
+- Giữ quy tắc YouTube chặn UDP/QUIC, bốn URL Rewrite, một Map Local và ba script hook từ module nguồn.
+- Giữ `captionLang: "vi"`, `blockUpload: true`, `blockImmersive: true`, `blockShorts: false` và `debug: false`.
+- Giữ `requires-body`, `max-size`, `binary-body-mode` và định dạng JSON argument của nguồn Maasea.
+- Gộp hostname MITM của Locket và YouTube vào một mục.
+- Bỏ User-Agent Locket áp dụng toàn cục.
+- Bỏ quy tắc `ctier` của module nguồn vì biểu thức đó yêu cầu chuỗi dấu phẩy `,ctier,` trong URL; không thêm quy tắc thay thế chưa kiểm chứng.
 
-MODULE:
-https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/refs/heads/main/module/locket-only-60s-full.module
+## Đường dẫn script
 
-5. CHỈ khi các link mở thành công mới thêm URL MODULE vào Shadowrocket.
-6. Tắt các Module Locket cũ (kể cả bản gộp YouTube), làm mới Module/Script rồi mở lại Locket.
+### Locket
 
-## NỘI DUNG
+- https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/scripts/forceGold4.3_60s_full.js
+- https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/scripts/locketfix8_60s_full.js
+- https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/scripts/header7_60s_full.js
 
-- forceGold4.3_60s_full.js: giữ nguyên toàn bộ nhóm cấu hình từ bản gần nhất của bạn: camera, feature gates, filter/AI Looks, video, caption, widget, friends, chat, cache và các tùy chỉnh. 22 giá trị thời lượng 30.0 được đổi thành 60.0. Bổ sung bắt lỗi JSON.
-- locketfix8_60s_full.js: mô phỏng dữ liệu Gold theo bộ cũ; không phải thanh toán thật.
-- header7_60s_full.js: xử lý X-RevenueCat-ETag cho request có User-Agent Locket.
-- Module chứa đúng ba đường dẫn này; không có YouTube.
+### YouTube
 
-## GIỚI HẠN
+- https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
+- https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.request.js
 
-ĐẶT 60 GIÂY TRONG SCRIPT KHÔNG ĐỒNG NGHĨA LOCKET THỰC TẾ SẼ QUAY ĐƯỢC 60 GIÂY. Ứng dụng hoặc máy chủ có thể áp giới hạn 3 giây, hoặc từ chối tính năng do quyền tài khoản. AI Create Look cũng không tự được mở nhờ những cờ giao diện.
+Script YouTube tiếp tục được tải từ Maasea/sgmodule, giấy phép Apache-2.0. Mã nguồn request có thể chuyển hướng `initplayback` đến `https://init-stream.maasea.workers.dev/`; đây là phụ thuộc có sẵn từ upstream.
 
-Lưu ý: code gốc có số điện thoại Zalo trong popup; vì repo công khai, bạn cân nhắc xóa số đó trước khi upload nếu muốn bảo mật. Tránh tin cậy Root CA từ bên thứ ba không rõ nguồn gốc.
+## Giới hạn đã biết
+
+- Locket: đặt các trường thời lượng 60 giây không bảo đảm ứng dụng quay hoặc máy chủ nhận video 60 giây. Dữ liệu Gold trong script là mô phỏng, không tạo giao dịch mua thật.
+- Ba script Locket giữ nguyên trong lần ghép này. Phản hồi Firebase `NO_CHANGE` có thể bỏ qua giá trị mới; các khối cấu hình JSON được thay nguyên khối nên có thể mất trường do máy chủ bổ sung.
+- YouTube: [upstream Maasea](https://github.com/Maasea/sgmodule) kiểm thử cho Surge; chưa xác nhận chạy trên Shadowrocket/iPhone thực tế.
+- Các script tải từ nhánh `main`/`master` có thể được tác giả cập nhật sau này.
+- Script Locket hiện có số điện thoại trong popup; bản ghép không chỉnh sửa nội dung script.
+
+## Cấu trúc repo
+
+```text
+Locket_Only_60s_Full/
+├── README.md
+├── SHA256SUMS.txt
+├── module/
+│   ├── locket-only-60s-full.module
+│   └── locket-60s-youtube-huyhoang.module
+└── scripts/
+    ├── forceGold4.3_60s_full.js
+    ├── header7_60s_full.js
+    └── locketfix8_60s_full.js
+```
+
+`SHA256SUMS.txt` kiểm tra các file trong thư mục này; không bao gồm script YouTube tải từ upstream.
