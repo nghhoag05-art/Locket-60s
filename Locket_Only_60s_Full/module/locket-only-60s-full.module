@@ -1,5 +1,5 @@
-#!name=Locket Only 60s - HuyHoang Full
-#!desc=Locket ONLY: full remote-config/captions; 60s requested (subject to Locket server limits).
+#!name=Locket Only 3 minutes (180s) - HuyHoang Full
+#!desc=Locket ONLY: full remote-config/captions; 180s requested (subject to Locket server limits).
 
 [Script]
 # Locket Gold-style subscriber display logic (not a verified subscription)
