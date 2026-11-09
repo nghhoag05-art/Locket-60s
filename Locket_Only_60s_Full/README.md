@@ -1,13 +1,13 @@
-# Locket 3 phút (180 giây) + YouTube — Shadowrocket
+# Locket 60 giây + YouTube — Shadowrocket
 
 Repo có hai lựa chọn:
 
-- `module/locket-60s-youtube-huyhoang.module`: Locket 3 phút kèm phần YouTube lấy từ [module đã chọn](https://github.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/blob/main/module/locket-youtube-huyhoang.module).
-- `module/locket-only-60s-full.module`: chỉ Locket 3 phút.
+- `module/locket-60s-youtube-huyhoang.module`: Locket 60 giây kèm phần YouTube lấy từ [module đã chọn](https://github.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/blob/main/module/locket-youtube-huyhoang.module).
+- `module/locket-only-60s-full.module`: chỉ Locket 60 giây.
 
-Tên repo, thư mục và file còn chứa `60s` để giữ nguyên URL đã cài. Thời lượng cấu hình hiện tại là 180 giây; `timeout=60` là giới hạn chạy script và được giữ nguyên.
+Thời lượng cấu hình hiện tại là 60 giây; `timeout=60` là giới hạn chạy script.
 
-## Cài bản Locket 3 phút + YouTube
+## Cài bản Locket 60 giây + YouTube
 
 1. Thêm URL sau trong phần Module của Shadowrocket:
 
@@ -20,7 +20,7 @@ Tên repo, thư mục và file còn chứa `60s` để giữ nguyên URL đã c�
 
 ## Nội dung bản ghép
 
-- Đặt 22 giá trị thời lượng trong script cấu hình Locket thành `180.0` (3 phút). Tên file và URL `*_60s_full.js` được giữ để các module đã cài tiếp tục cập nhật.
+- Đặt 22 giá trị thời lượng trong script cấu hình Locket thành `60.0` (60 giây). Tên file và URL `*_60s_full.js` được giữ để các module đã cài tiếp tục cập nhật.
 - Giữ quy tắc YouTube chặn UDP/QUIC, bốn URL Rewrite, một Map Local và ba script hook từ module nguồn.
 - Giữ `captionLang: "vi"`, `blockUpload: true`, `blockImmersive: true`, `blockShorts: false` và `debug: false`.
 - Giữ `requires-body`, `max-size`, `binary-body-mode` và định dạng JSON argument của nguồn Maasea.
@@ -45,11 +45,11 @@ Script YouTube tiếp tục được tải từ Maasea/sgmodule, giấy phép Ap
 
 ## Giới hạn đã biết
 
-- Locket: đặt các trường thời lượng 180 giây không bảo đảm ứng dụng quay hoặc máy chủ nhận video 180 giây. Dữ liệu Gold trong script là mô phỏng, không tạo giao dịch mua thật.
+- Locket: đặt các trường thời lượng 60 giây không bảo đảm ứng dụng quay hoặc máy chủ nhận video 60 giây. Dữ liệu Gold trong script là mô phỏng, không tạo giao dịch mua thật.
 - Phản hồi Firebase `NO_CHANGE` có thể bỏ qua giá trị mới; các khối cấu hình JSON được thay nguyên khối nên có thể mất trường do máy chủ bổ sung.
 - YouTube: [upstream Maasea](https://github.com/Maasea/sgmodule) kiểm thử cho Surge; chưa xác nhận chạy trên Shadowrocket/iPhone thực tế.
 - Các script tải từ nhánh `main`/`master` có thể được tác giả cập nhật sau này.
-- Script Locket hiện có số điện thoại trong popup; bản ghép không chỉnh sửa nội dung script.
+- Script Locket giữ nguyên lời giới thiệu và số điện thoại trong popup; chỉ bổ sung ảnh giới thiệu theo yêu cầu.
 
 ## Cấu trúc repo
 
@@ -67,3 +67,9 @@ Locket_Only_60s_Full/
 ```
 
 `SHA256SUMS.txt` kiểm tra các file trong thư mục này; không bao gồm script YouTube tải từ upstream.
+
+## Ảnh giới thiệu Zalo
+
+![Ảnh giới thiệu Hoàng](https://i.postimg.cc/26JD782q/Screenshot-2026-11-10-021543.png)
+
+Ảnh được đặt ở `feature_discovery_popup_config.feature_set[0].imageURL`; giữ nguyên lời giới thiệu và số Zalo. Chưa kiểm tra cách Locket hiển thị hoặc cắt ảnh trên iPhone.

@@ -1,5 +1,5 @@
-#!name=Locket 3 minutes (180s) + YouTube - Huy Hoang
-#!desc=Locket 180s remote config/captions + YouTube customizations. Actual features depend on app/server and client compatibility.
+#!name=Locket 60s + YouTube - Huy Hoang
+#!desc=Locket 60s remote config/captions + YouTube customizations. Actual features depend on app/server and client compatibility.
 #!author=Huy Hoang (combined); YouTube scripts: Maasea/sgmodule (Apache-2.0)
 # Locket source: https://github.com/nghhoag05-art/Locket-60s/tree/main/Locket_Only_60s_Full
 # YouTube rules source: https://github.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/blob/main/module/locket-youtube-huyhoang.module
@@ -20,7 +20,7 @@ AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
 
 [Script]
-# Locket: 180-second duration settings; filenames retained for existing installations.
+# Locket: 60-second duration settings and personal introduction image.
 locket_receipt_60s = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/scripts/locketfix8_60s_full.js, requires-body=true, max-size=-1, timeout=60
 locket_header_60s = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/scripts/header7_60s_full.js, timeout=60
 locket_config_60s = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-60s/refs/heads/main/Locket_Only_60s_Full/scripts/forceGold4.3_60s_full.js, requires-body=true, max-size=-1, timeout=60

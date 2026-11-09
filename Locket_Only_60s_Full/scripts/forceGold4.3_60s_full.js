@@ -54,7 +54,8 @@ if (ua.includes("Locket") || /projects\/locket-4252a\//.test($request.url || "")
             feature_set: [
                 {
                     title: "Hoàng Official ✨",
-                    body: "Zalo 0978738782"
+                    body: "Zalo 0978738782",
+                    imageURL: "https://i.postimg.cc/26JD782q/Screenshot-2026-11-10-021543.png"
                 }
             ],
             primary_button_title: "Xong",
@@ -95,10 +96,10 @@ if (ua.includes("Locket") || /projects\/locket-4252a\//.test($request.url || "")
     // ============================================================
     Object.assign(obj.entries, {
         camera: JSON.stringify({
-            gold_max_duration: 180.0,
-            goldMaxDuration: 180.0,
-            max_duration: 180.0,
-            maxDuration: 180.0,
+            gold_max_duration: 60.0,
+            goldMaxDuration: 60.0,
+            max_duration: 60.0,
+            maxDuration: 60.0,
             ultra_wide: true,
             ultraWide: true,
             volume_button: true,
@@ -111,15 +112,15 @@ if (ua.includes("Locket") || /projects\/locket-4252a\//.test($request.url || "")
             qualityMbps: 0.9
         }),
         camera_roll: JSON.stringify({
-            gold_max_duration: 180.0,
-            goldMaxDuration: 180.0,
-            video_max_duration: 180.0,
-            videoMaxDuration: 180.0,
-            max_duration: 180.0,
-            maxDuration: 180.0,
-            trim_max_duration: 180.0,
-            trimMaxDuration: 180.0,
-            camera_roll_max_duration: 180.0,
+            gold_max_duration: 60.0,
+            goldMaxDuration: 60.0,
+            video_max_duration: 60.0,
+            videoMaxDuration: 60.0,
+            max_duration: 60.0,
+            maxDuration: 60.0,
+            trim_max_duration: 60.0,
+            trimMaxDuration: 60.0,
+            camera_roll_max_duration: 60.0,
             quality_mbps: 0.9,
             qualityMbps: 0.9,
             flash_button: true
@@ -158,15 +159,15 @@ if (ua.includes("Locket") || /projects\/locket-4252a\//.test($request.url || "")
         camera_roll_video_upload_enabled: "true",
         internal_camera_roll_video_upload_enabled: "true",
         longer_camera_roll_videos_enabled: "true",
-        camera_roll_video_max_duration: "180.0",
-        camera_roll_max_duration: "180.0",
-        camera_roll_duration: "180.0",
-        max_video_duration: "180.0",
-        video_max_duration: "180.0",
-        video_trim_max_duration: "180.0",
-        trim_max_duration: "180.0",
-        gold_max_duration: "180.0",
-        goldMaxDuration: "180.0",
+        camera_roll_video_max_duration: "60.0",
+        camera_roll_max_duration: "60.0",
+        camera_roll_duration: "60.0",
+        max_video_duration: "60.0",
+        video_max_duration: "60.0",
+        video_trim_max_duration: "60.0",
+        trim_max_duration: "60.0",
+        gold_max_duration: "60.0",
+        goldMaxDuration: "60.0",
         video_quality_mbps: "0.9",
         video_sound_enabled: "true",
         microphone_enabled: "true",
